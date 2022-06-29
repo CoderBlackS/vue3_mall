@@ -1,10 +1,16 @@
 {
   "compilerOptions": {
+    //    目标代码（ts->js(es5\6\7))
     "target": "esnext",
+    //    目标代码需要使用模块化的方案（commonjs require exports）
     "module": "esnext",
+    //    严格的一些检查
     "strict": true,
+    //    对jsx怎样处理
     "jsx": "preserve",
+    //    按照node的方式去解析模块
     "moduleResolution": "node",
+    //    跳过一些库的类型检测
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
@@ -12,7 +18,7 @@
     "useDefineForClassFields": true,
     "sourceMap": true,
     "baseUrl": ".",
-    "types": ["webpack-env","element-plus/global"],
+    "types": ["webpack-env", "element-plus/global"],
     "paths": {
       "@/*": ["src/*"]
     },
