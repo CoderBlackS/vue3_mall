@@ -1,17 +1,21 @@
 import hYRequest from './request'
-
+import localCache from '@/untils/cache'
 const hyRequest = new hYRequest({
   baseURL: process.env.VUE_APP_BASE_URL,
   interceptors: {
     requestInterceptor: (config) => {
-      console.log('请求成功的拦截')
+      // 携带token的拦截
+      const token = localCache.getCache('token')
+      if (config && config.headers) {
+        // 多一步判断
+        config.headers.Authorization = `Bearer ${token}`
+      }
       return config
     },
     requestInterceptorCatch(error) {
       return error
     },
     responseInterceptor: (res) => {
-      console.log('响应成功的拦截')
       return res
     },
     responseInterceptorCatch(error) {
